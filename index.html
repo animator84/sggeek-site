@@ -3,41 +3,300 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SGGeek</title>
-  <meta name="description" content="SGGeek public pages">
+  <title>SGGeek | Projects and Apps</title>
+  <meta name="description" content="SGGeek portfolio: arcade machines, tinkering projects, and small mobile apps with privacy policies.">
+  <meta property="og:title" content="SGGeek | Projects and Apps">
+  <meta property="og:description" content="Arcade builds, tinkering projects, and indie apps from SGGeek.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sggeek.com/">
+  <meta property="og:image" content="https://www.sggeek.com/assets/img/sggeek-og.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SGGeek | Projects and Apps">
+  <meta name="twitter:description" content="Arcade builds, tinkering projects, and small mobile apps from SGGeek.">
+  <meta name="twitter:image" content="https://www.sggeek.com/assets/img/sggeek-og.svg">
   <style>
-    :root { color-scheme: light dark; }
+    :root {
+      --bg: #0f172a;
+      --surface: #111c37;
+      --surface-2: #17264a;
+      --text: #e5ecff;
+      --muted: #a4b4df;
+      --accent: #8ab4ff;
+      --border: #324a80;
+      --max-width: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
     body {
       font-family: Arial, Helvetica, sans-serif;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2.5rem 1rem 3rem;
       line-height: 1.6;
+      color: var(--text);
+      background: radial-gradient(circle at top, #182c57, var(--bg) 48%);
     }
-    header {
-      margin-bottom: 2rem;
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    .container {
+      width: min(var(--max-width), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+    .top-nav {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+      background: rgba(15, 23, 42, 0.85);
+      border-bottom: 1px solid rgba(138, 180, 255, 0.2);
+      z-index: 5;
+    }
+    .top-nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.7rem 0;
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+    section { padding: 2rem 0; }
+    .hero { padding-top: 3rem; }
+    h1, h2, h3 { line-height: 1.25; margin: 0 0 0.7rem; }
+    h1 { font-size: clamp(1.8rem, 5vw, 3rem); }
+    h2 { font-size: clamp(1.35rem, 3vw, 2rem); }
+    .subtitle {
+      color: var(--muted);
+      max-width: 60ch;
+      margin-bottom: 1.3rem;
+    }
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .pill {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 999px;
+      padding: 0.45rem 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .section-intro {
+      color: var(--muted);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      max-width: 72ch;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
     }
     .card {
-      border: 1px solid rgba(127,127,127,.35);
-      border-radius: 12px;
-      padding: 1.25rem 1.25rem;
+      border: 1px solid var(--border);
+      background: linear-gradient(160deg, var(--surface), var(--surface-2));
+      border-radius: 14px;
+      overflow: hidden;
     }
-    a { word-break: break-word; }
-    .muted { color: #666; }
+    .card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-body { padding: 0.95rem; }
+    .card-body p {
+      margin: 0.45rem 0 0.8rem;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+    .card-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      font-size: 0.93rem;
+    }
+    .apps-list {
+      display: grid;
+      gap: 0.8rem;
+    }
+    .app-row {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 0.85rem 1rem;
+    }
+    .app-row h3 {
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+    .app-row p {
+      margin: 0 0 0.5rem;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+    footer {
+      border-top: 1px solid rgba(138, 180, 255, 0.2);
+      margin-top: 2rem;
+      padding: 1.6rem 0 2.8rem;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+    @media (max-width: 640px) {
+      .nav-links { gap: 0.7rem; font-size: 0.9rem; }
+      .hero { padding-top: 2rem; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>SGGeek</h1>
-    <p class="muted">Public pages hosted at <strong>www.sggeek.com</strong>.</p>
-  </header>
+  <nav class="top-nav">
+    <div class="container">
+      <div class="brand">SGGeek</div>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#apps">Apps</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-  <main class="card">
-    <h2>Diamond Adventure</h2>
-    <p>
-      Privacy Policy:
-      <a href="/app/diamondadventure/privacypolicy/">/app/diamondadventure/privacypolicy/</a>
-    </p>
+  <main class="container">
+    <section class="hero" id="home">
+      <h1>Building fun projects, arcade machines, and indie apps.</h1>
+      <p class="subtitle">
+        SGGeek is my home base for hobby engineering and small-scale app work.
+        I build physical projects, experiment with electronics, and publish practical apps.
+      </p>
+      <div class="pill-group">
+        <a class="pill" href="https://www.instagram.com/sggeek/" target="_blank" rel="noreferrer">Instagram</a>
+        <a class="pill" href="https://github.com/animator84/sggeek-site" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="pill" href="#apps">App Privacy Policies</a>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <p class="section-intro">
+        Featured highlights from arcade and tinkering builds. This section uses local thumbnails for speed,
+        with external links for videos and full galleries.
+      </p>
+      <div class="projects-grid">
+        <article class="card">
+          <img src="/assets/img/arcade-machine.svg" alt="Arcade cabinet project thumbnail">
+          <div class="card-body">
+            <h3>Custom Arcade Cabinet Build</h3>
+            <p>Cabinet design, control panel tuning, and gameplay testing with retro-style controls.</p>
+            <div class="card-links">
+              <a href="https://www.instagram.com/sggeek/" target="_blank" rel="noreferrer">More photos</a>
+              <a href="https://www.youtube.com/results?search_query=arcade+machine+build" target="_blank" rel="noreferrer">Video ideas</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="/assets/img/electronics-lab.svg" alt="Electronics tinkering project thumbnail">
+          <div class="card-body">
+            <h3>Electronics Tinkering Bench</h3>
+            <p>Small experiments combining wiring, sensors, and controller boards for practical prototypes.</p>
+            <div class="card-links">
+              <a href="https://www.instagram.com/sggeek/" target="_blank" rel="noreferrer">More photos</a>
+              <a href="https://www.youtube.com/results?search_query=electronics+tinkering+project" target="_blank" rel="noreferrer">Video ideas</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="/assets/img/mobile-game-dev.svg" alt="Mobile app development project thumbnail">
+          <div class="card-body">
+            <h3>Small Mobile App Experiments</h3>
+            <p>Rapid game and utility app iterations, focused on simple, polished user experiences.</p>
+            <div class="card-links">
+              <a href="https://www.instagram.com/sggeek/" target="_blank" rel="noreferrer">Progress log</a>
+              <a href="#apps">View apps</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="/assets/img/arcade-machine.svg" alt="Arcade controls optimization thumbnail">
+          <div class="card-body">
+            <h3>Arcade Control Optimization</h3>
+            <p>Button mapping, joystick calibration, and layout tweaks to improve feel and reliability.</p>
+            <div class="card-links">
+              <a href="https://www.instagram.com/sggeek/" target="_blank" rel="noreferrer">More photos</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="/assets/img/electronics-lab.svg" alt="Prototype enclosure and wiring thumbnail">
+          <div class="card-body">
+            <h3>Prototype Enclosure and Wiring</h3>
+            <p>Compact casing and clean cable management for projects that need to be practical and durable.</p>
+            <div class="card-links">
+              <a href="https://www.instagram.com/sggeek/" target="_blank" rel="noreferrer">More photos</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="/assets/img/mobile-game-dev.svg" alt="Indie app release pipeline thumbnail">
+          <div class="card-body">
+            <h3>Indie App Release Workflow</h3>
+            <p>From project setup to release-ready pages, including support links and privacy policy hosting.</p>
+            <div class="card-links">
+              <a href="#apps">App links</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="apps">
+      <h2>Apps</h2>
+      <p class="section-intro">
+        App pages live on this site so privacy policies always have a stable URL for store submissions.
+      </p>
+      <div class="apps-list">
+        <article class="app-row">
+          <h3>Diamond Adventure</h3>
+          <p>Arcade-style mobile game project.</p>
+          <div class="card-links">
+            <a href="https://play.google.com/store" target="_blank" rel="noreferrer">Play Store</a>
+            <a href="/app/diamondadventure/privacypolicy/">Privacy Policy</a>
+          </div>
+        </article>
+
+        <article class="app-row">
+          <h3>Puzzle Sparks (in development)</h3>
+          <p>A small puzzle prototype currently in testing and balancing phase.</p>
+          <div class="card-links">
+            <a href="https://play.google.com/store" target="_blank" rel="noreferrer">Play Store</a>
+            <a href="/app/puzzlesparks/privacypolicy/">Privacy Policy</a>
+          </div>
+        </article>
+      </div>
+    </section>
   </main>
+
+  <footer id="contact">
+    <div class="container">
+      <p>Contact: <a href="mailto:privacy@sggeek.com">privacy@sggeek.com</a></p>
+      <p>
+        Social: <a href="https://www.instagram.com/sggeek/" target="_blank" rel="noreferrer">instagram.com/sggeek</a>
+      </p>
+      <p>&copy; 2026 SGGeek</p>
+    </div>
+  </footer>
 </body>
 </html>
